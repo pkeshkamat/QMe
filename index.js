@@ -74,6 +74,7 @@ function ask_question(message,connected=null,index=0, category=null){
     const embed1=new discord.MessageEmbed()
     .setColor("7f95e6")
     .setTitle("Game Ended.")
+    .setFooter("QuizMe by _pk#4578")
     str=[":crown: Final Leaderboard:"]
     Object.keys(scores[message.guild.id]).forEach(key=>{
       str.push("<@"+key+"> - "+scores[message.guild.id][key])
@@ -94,7 +95,7 @@ function ask_question(message,connected=null,index=0, category=null){
   }
   const embed=new discord.MessageEmbed()
   embed.setTitle("Scoreboard")
-  embed.setAuthor(`Questions Heard: ${index}`)
+  embed.setAuthor(`Questions Heard: ${index}`).setFooter("QuizMe by _pk#4578")
   str=[":crown: Leaderboard:"]
   Object.keys(scores[message.guild.id]).forEach(key=>{
     str.push("<@"+key+"> - "+scores[message.guild.id][key])
@@ -194,6 +195,7 @@ return m.content.split(" ")[1].toUpperCase()==z
             }
           }
           em=new discord.MessageEmbed()
+		.setFooter("QuizMe by _pk#4578")
           em.setColor("GREEN")
           em.setTitle("Correct!")
           m.reply(em)
@@ -244,6 +246,7 @@ return m.content.split(" ")[1].toUpperCase()==z
               const embed1=new discord.MessageEmbed()
               .setColor("7f95e6")
               .setTitle("Game Ended.")
+	          .setFooter("QuizMe by _pk#4578")
               str=[":crown: Final Leaderboard:"]
               Object.keys(scores[message.guild.id]).forEach(key=>{
                 str.push("<@"+key+"> - "+scores[message.guild.id][key])
@@ -315,6 +318,7 @@ client.on("message",async (message)=>{
         .setColor("RED")
         .setTitle("No Channel")
         .setDescription("Join a voice channel first!")
+	    .setFooter("QuizMe by _pk#4578")
         message.reply(embed)
 	    }
     }else{
@@ -330,6 +334,7 @@ client.on("message",async (message)=>{
           str.push("<@"+key+"> - "+scores[message.guild.id][key])
         })
         embed.setDescription(str.join("\n"))
+	          .setFooter("QuizMe by _pk#4578")
         .setColor("#7f95e6")
         message.reply(embed)
       }
@@ -337,6 +342,7 @@ client.on("message",async (message)=>{
     case (prefix+"global"):
       const embed=new discord.MessageEmbed()
       embed.setTitle("Global Leaderboard")
+		  
       str=[":crown: Leaderboard:"]
       db.all("SELECT * FROM points ORDER BY points DESC limit 10;", async function(err, rows) {  
       
@@ -355,6 +361,7 @@ client.on("message",async (message)=>{
       }) 
       setTimeout(function(){
       embed.setDescription(str.join("\n"))
+	          .setFooter("QuizMe by _pk#4578")
       .setColor("#7f95e6")
       message1.edit("<@"+message.author.id+">",embed)
    
