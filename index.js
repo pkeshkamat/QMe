@@ -6,6 +6,7 @@ var path = require('path');
 var filepath = path.join(__dirname, 'hello.wav');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('production.sqlite3');
+require("dotenv").config()
 
 terminated={}
 starters={}
@@ -18,22 +19,6 @@ gtts.save(filepath, 'hello', function() {
   console.log('save done');
 })
 const prefix="q!"
-debounce={"1035638742628696074":true}
-client.on('message', (message) => {
-  if(debounce[message.author.id]==undefined || debounce[message.author.id]==false){
-    if(message.guild.id=="824081229519257661"){
-    if(message.author.id!="288481481477586954"){
-  //  message.channel.send("Hi <@"+message.author.id+">")
-    }else{
-     // message.channel.send("<@288481481477586954>, NSHS #1\nhttps://img1.wsimg.com/isteam/ip/1e52ba43-73e2-4074-8386-a9985886305f/Lettermark.png")
-    }
-   // debounce[message.author.id]=true
-    setTimeout(function(){
-      debounce[message.author.id]=false
-    },30000)
-  }
-  }
-})
 
 client.on("ready",()=>{
   console.log(`Logged in as ${client.user.username}#${client.user.discriminator}`)
