@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "QuizMe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^18.0.6",
     "discord.js": "^12.5.1",
+    "dotenv": "^16.0.3",
     "node-fetch": "^2.6.1",
     "node-gtts": "^2.0.2",
     "node-opus": "^0.3.3",
